@@ -1,0 +1,139 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="web.css">
+    <title>The world of Sports</title>
+</head>
+<body>
+    <h1>THE WORLD OF SPORTS</h1>
+    <div class="container">
+      <div class="box" onclick="showVideo('video1')">
+        <img
+          src="thumbnail/basketball.png"
+        />
+      </div>
+      <div class="box" onclick="showVideo('video2')">
+        <img
+          src="thumbnail/volleyball.png"
+        />
+      </div>
+      <div class="box" onclick="showVideo('video3')">
+        <img
+          src="thumbnail/badminton.png"
+        />
+      </div>
+    </div>
+  
+    <div class="overlay" id="video1" role="dialog" aria-hidden="true">
+        <div class="modal-layout">
+            <button class="control-btn" onclick="navigateVideo('video3', 'video1')">←</button>
+            <div class="modal">
+            
+                <h3>BASKETBALL</h3>
+                <button class="close-btn" onclick="hideVideo('video1')">✖</button>
+                <video controls id="video1-player">
+                <source src="videos/Cinematic Sports Video Basketball .mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+                </video>
+                <h2>DESCRIPTION</h2>
+                <p>
+                    The world of basketball is a vibrant tapestry woven
+                    with threads of athleticism, strategy, and passion.
+                    From the echoing roar of the crowd in packed arenas 
+                    to the quiet focus of a player practicing their shot,
+                    basketball is a sport that resonates on multiple levels.
+                </p>
+                <p>
+                    It's a game of skill and finesse, where players dance
+                    across the court, weaving through defenses with lightning-fast
+                    ribbling and pinpoint passes. It's a game of power and precision,
+                    where soaring dunks and thunderous blocks leave audiences breathless. But beyond the spectacular plays, basketball is a story of teamwork, where individual talents converge to create a unified force. It's a sport that transcends borders and cultures, uniting fans from every corner of the globe in a shared love for the game. Whether you're a seasoned fan or a curious newcomer, the world of basketball offers a captivating journey filled with 
+                    excitement, inspiration, and the thrill of the unexpected.
+    
+                </p>
+                <img class="bgimage" src="bgbasket.png" alt="">
+                
+          </div>
+          <button class="control-btn" onclick="navigateVideo('video2', 'video1')">→</button>
+        </div>
+    </div>
+  
+    <div class="overlay" id="video2" role="dialog" aria-hidden="true">
+        <div class="modal-layout">
+            <button class="control-btn" onclick="navigateVideo('video1', 'video2')">←</button>
+            <div class="modal">
+                <button class="close-btn" onclick="hideVideo('video2')">✖</button>
+                <h3>VOLLEYBALL</h3>
+                
+                <video controls id="video2-player">
+                  <source src="videos/Cinematic Volleyball video.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                <h2>DESCRIPTION</h2>
+                <p>
+                    Get ready to be blown away by "Little Giant Volleyball," a cinematic promo video that captures the heart-pounding intensity of this beloved sport. Prepare for a visual feast of powerful spikes, impressive blocks, and skillful digs, all brought to life with dramatic music and slow-motion shots that highlight the raw athleticism and precision of each play. The video emphasizes the team aspect of volleyball, showcasing the crucial role of communication and collaboration in achieving victory.
+                </p>
+                <p>
+                    "Little Giant Volleyball" is more than just a promo; it's a testament to the spirit of the game, and likely focuses on a specific player or team known for their remarkable skill and determination despite their size. This video is a powerful reminder of the passion and dedication that drives volleyball players, and is sure to inspire both seasoned fans and newcomers alike.
+        
+                </p>
+                <img class="bgimage" src="bgvolleyball.png" alt="">
+                
+              </div>
+              <button class="control-btn" onclick="navigateVideo('video3', 'video2')">→</button>
+        </div>
+    
+    </div>
+  
+    <div class="overlay" id="video3" role="dialog" aria-hidden="false">
+        <div class="modal-layout">
+            <button class="control-btn" onclick="navigateVideo('video2', 'video3')">←</button>
+            <div class="modal">
+                <div class="modal-layout">
+                </div>
+                <h3>BADMINTON</h3>
+                <button class="close-btn" onclick="hideVideo('video3')">✖</button>
+                <video controls id="video3-player">
+                  <source src="videos/Badminton Trailer.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                <h2>DESCRIPTION</h2>
+                <p>
+                    Badminton, a sport of speed, agility, and precision, is a captivating dance of strategy and athleticism played on a rectangular court. Two opposing players (singles) or two opposing pairs (doubles) stand on opposite halves of the court, separated by a net, and compete to hit a shuttlecock over the net and into their opponent's half.
+                </p>
+                <p>
+                    The beauty of badminton lies in its dynamic nature. Players move with lightning-fast reflexes, covering the court with incredible speed and agility. They strike the shuttlecock with a variety of shots, from powerful smashes that send the shuttlecock hurtling towards the opponent's court to delicate drop shots that fall just over the net. Every point is a battle of wits and skill, as players anticipate their opponent's movements and react with precision.
+        
+                </p>
+                <img class="bgimage" src="bgbadminton.png" alt="">
+              </div>
+              <button class="control-btn" onclick="navigateVideo('video1', 'video3')">→</button>
+        </div>
+    </div>
+  
+    <script>
+      function showVideo(videoId) {
+        const overlay = document.getElementById(videoId);
+        overlay.classList.add('active');
+        overlay.setAttribute('aria-hidden', 'false');
+      }
+  
+      function hideVideo(videoId) {
+        const overlay = document.getElementById(videoId);
+        overlay.classList.remove('active');
+        overlay.setAttribute('aria-hidden', 'true');
+        const videoPlayer = document.getElementById(`${videoId}-player`);
+        if (videoPlayer) {
+          videoPlayer.pause();
+          videoPlayer.currentTime = 0;
+        }
+      }
+  
+      function navigateVideo(showId, hideId) {
+        hideVideo(hideId);
+        showVideo(showId);
+      }
+    </script>
+  </body>
+</html>
